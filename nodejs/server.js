@@ -7,13 +7,12 @@ var json2html = require('node-json2html');
 const express = require('express');
 
 
-// Constants
+// donde va a escuchar node server
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
-
 //creo cliente DB
-const client = redis.createClient(); // this creates a new client
+const client = redis.createClient('6379','redisDB'); // this creates a new client
 
 // echo redis errors to the console
 client.on('error', (err) => {
