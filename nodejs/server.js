@@ -87,12 +87,17 @@ console.log(`Running on http://${HOST}:${PORT}`);
 //functions
 /////////
 function resToTable(result) {
-    //declaro array vaciyo de respuesta donde guardar los json objects
+    //declaro array vacio de respuesta donde guardar los json objects
     let response = [];
-
+    //declaro fecha para poner formato YYYY-MM-DD, dado que redis requiere guardar en formato YYYYMMDD
+    //let date;
     while (result.length > 0) {
-        response.push({
-            fecha: result.pop(),
+        
+	//date = result.pop();
+	//date = date.replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3');
+	   
+	response.push({
+            fecha: result.pop().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
             valor: result.pop()
         });
     };
